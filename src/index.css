@@ -1,0 +1,187 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+
+body {
+	font-family: Arial, Helvetica, sans-serif;
+	background-color: #092a5c;
+	color: #ffff;
+}
+
+.container {
+	max-width: 50%;
+	margin: 30px auto;
+	border: 2px solid #00ffcd;
+	padding: 30px;
+	border-radius: 15px;
+}
+
+.header {
+	margin-bottom: 1em;
+}
+
+.header hr {
+	margin-top: 1em;
+	border-color: #00ffcd;
+}
+
+
+/* btn */
+.btn {
+	background: inherit;
+	color: inherit;
+	border: 2px solid white;
+	font-size: 15px;
+	border-radius: 15px;
+
+	padding: 0.5em;
+	margin-top: 1.5em;
+
+	cursor: pointer;
+}
+
+.btn:focus {
+  	outline: none;
+}
+
+.btn:hover {
+	color: #00ffcd;
+	border-color: #00ffcd;
+}
+
+.btn:active {
+  	transform: scale(0.95);
+}
+
+
+/* forms */
+.add-form {
+	display: flex;
+	align-items: center;
+  	margin-bottom: 1em;
+}
+
+.form-control {
+	flex: 1;
+  	margin: 20px 0;
+	margin-right: 3em;
+}
+
+.form-control label {
+	display: block;
+	margin-left: 0.3em;
+}
+
+.form-control input {
+	width: 100%;
+	height: 2em;
+
+	margin-top: 0.5em;
+	padding-left: 1em;
+	padding-right: 1em;
+
+	font-size: 15px;
+	border-radius: 15px;
+}
+
+.form-control input:focus {
+	box-shadow: 0px 0px 1px 2px #00ffcd;
+	outline: none;
+}
+
+
+
+.repoInfoItem{
+	flex: 1;
+	padding: 0.7em;
+	margin-left: 1em;
+	margin-bottom: 0.5em;
+
+	background: #051835;
+	border-radius: 15px;
+	color: #00ffcd;
+	text-align: center;
+}
+
+
+.repoInfoItem p{
+	color: #ffff;
+	font-size: 12px;
+	font-weight: normal;
+}
+
+
+
+
+
+
+
+table{
+	table-layout: fixed;
+	width: 100%;
+}
+
+
+
+/* repo info */
+.repoInfo {
+	display: flex;
+	background: #0a2247;
+	padding: 1em;
+	border-radius: 15px;
+	/* cursor: pointer; */
+}
+
+
+.repoInfoHeader{
+	margin-left: 1em;
+	margin-bottom: 1em;
+}
+
+.repoInfoHeader h2{
+	margin-bottom: 0.5em;
+	display: inline-block;
+}
+
+.repoInfoOwner{
+	text-align: center;
+}
+
+.repoInfoNotFound{
+	background: #0a2247;
+	padding: 1em;
+	border-radius: 15px;
+	text-align: center;
+}
+
+
+
+.about{
+	background: #0a2247;
+	padding: 1em;
+	border-radius: 15px;
+	text-align: center;
+}
+
+
+
+a {
+	color: #00ffcd;
+	text-decoration: none;
+}
+
+
+
+img {
+	border-radius: 50%;
+}
+
+.link{
+	color: #00ffcd;
+}
+
+footer {
+	margin-top: 30px;
+	text-align: center
+}
