@@ -2,6 +2,8 @@ import { useState } from 'react'
 import { BrowserRouter as Router, Route } from 'react-router-dom'
 
 import Header from './components/Header'
+import About from './components/About'
+import Footer from './components/Footer'
 
 import SearchRepo from './components/SearchRepo'
 import RepoInfo from './components/RepoInfo'
@@ -41,6 +43,17 @@ function App() {
 						<RepoInfo repoInfo={repoInfo} repoNotFound={staticTexts.repoNotFound}/>
                     </>
                 )} />
+
+                {/* <Route path='/about' component={About} /> */}
+                <Route path='/about' exact render={(props) => 
+                (
+                    <>
+						<About aboutText={staticTexts.aboutText}/>
+                    </>
+                )} />
+
+
+                <Footer />
             </div>
         </Router>
 	);
