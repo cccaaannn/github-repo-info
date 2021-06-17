@@ -1,10 +1,10 @@
-const RepoInfoItem = (props) => {
+const InfoItem = (props) => {
     return (
-        <div className="repoInfoItem">
+        <div className="repo-info-item">
             <h3>{props.info}</h3>
             <p>{props.infoDescription}</p>
         </div>
     )
 }
 
-export default RepoInfoItem
+export default InfoItem
