@@ -92,20 +92,23 @@ body {
 
 
 
-.repoInfoItem{
+.repo-info-item{
 	flex: 1;
 	padding: 0.7em;
-	margin-left: 1em;
+	margin-left: 0.5rem;
+	margin-right: 0.5rem;
 	margin-bottom: 0.5em;
 
 	background: #051835;
+	/* background: #aaffee4b; */
 	border-radius: 15px;
 	color: #00ffcd;
+	/* color: rgb(70,95,114); */
 	text-align: center;
 }
 
 
-.repoInfoItem p{
+.repo-info-item p{
 	color: #ffff;
 	font-size: 12px;
 	font-weight: normal;
@@ -125,7 +128,7 @@ table{
 
 
 /* repo info */
-.repoInfo {
+.info-area {
 	display: flex;
 	background: #0a2247;
 	padding: 1em;
@@ -133,27 +136,43 @@ table{
 	/* cursor: pointer; */
 }
 
-
-.repoInfoHeader{
-	margin-left: 1em;
-	margin-bottom: 1em;
+.info-area-error{
+	text-align: center;
+	background: #0a2247;
+	padding: 1em;
+	border-radius: 15px;
 }
 
-.repoInfoHeader h2{
+
+.repo-info div{
+	margin-left: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.repo-info div h2{
 	margin-bottom: 0.5em;
 	display: inline-block;
 }
 
-.repoInfoOwner{
+
+
+.owner-info{
 	text-align: center;
 }
 
+.owner-info h2{
+	margin-bottom: 0.5em;
+}
+
+
+
+/* 
 .repoInfoNotFound{
 	background: #0a2247;
 	padding: 1em;
 	border-radius: 15px;
 	text-align: center;
-}
+} */
 
 
 
@@ -167,11 +186,9 @@ table{
 
 
 a {
-	color: #00ffcd;
+	color: #00ffcc;
 	text-decoration: none;
 }
-
-
 
 img {
 	border-radius: 50%;
