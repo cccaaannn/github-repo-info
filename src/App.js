@@ -6,12 +6,13 @@ import About from './components/About'
 import Footer from './components/Footer'
 
 import SearchRepo from './components/SearchRepo'
-import RepoInfo from './components/RepoInfo'
+import InfoArea from './components/InfoArea'
 
 
 function App() {
 
 	const [repoInfo, setRepoInfo] = useState({});
+	const [ownerInfo, setOwnerInfo] = useState({});
 
     const fetchRepo = async (repoOwner, repoName) => {
         const res = await fetch(`https://api.github.com/repos/${repoOwner}/${repoName}`);
@@ -19,15 +20,24 @@ function App() {
         return data
     }
 
+	const fetchOwner = async (repoOwner) => {
+        const res = await fetch(`https://api.github.com/users/${repoOwner}`);
+        const data = await res.json();
+        return data
+    }
+
 	const onSearch = async ({repoOwner, repoName}) => {
-		const data = await fetchRepo(repoOwner, repoName);
-		setRepoInfo(data);
+		const repoData = await fetchRepo(repoOwner, repoName);
+		const ownerData = await fetchOwner(repoOwner);
+		setRepoInfo(repoData);
+		setOwnerInfo(ownerData);
 	}
 
 	const staticTexts = {
 		title : "GitHub repo info",
-		aboutText : "This project is for displaying information for a GitHub repository.",
-		repoNotFound : "No Repo Found"
+		aboutText : "This project is for getting information for a GitHub repository.",
+		repoNotFound : "No Repo Found",
+		userNotFound: "User not found"
 	}
 
 
@@ -40,18 +50,16 @@ function App() {
                 (
                     <>
 						<SearchRepo onSearch={onSearch}/>
-						<RepoInfo repoInfo={repoInfo} repoNotFound={staticTexts.repoNotFound}/>
+						<InfoArea repoInfo={repoInfo} ownerInfo={ownerInfo} repoNotFound={staticTexts.repoNotFound} userNotFound={staticTexts.userNotFound}/>
                     </>
                 )} />
 
-                {/* <Route path='/about' component={About} /> */}
                 <Route path='/about' exact render={(props) => 
                 (
                     <>
 						<About aboutText={staticTexts.aboutText}/>
                     </>
                 )} />
-
 
                 <Footer />
             </div>
