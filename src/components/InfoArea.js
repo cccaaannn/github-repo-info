@@ -2,6 +2,8 @@ import PropTypes from 'prop-types'
 import RepoInfo from './RepoInfo'
 import OwnerInfo from './OwnerInfo'
 
+import styled from 'styled-components';
+
 const InfoArea = (props) => {
 
     return (
@@ -9,14 +11,14 @@ const InfoArea = (props) => {
             {
                 props.repoInfo.id
                 ?
-                    <div className="info-area">
+                    <InfoAreaStyle>
                         <OwnerInfo ownerInfo={props.ownerInfo} userNotFound={props.userNotFound}/>
                         <RepoInfo repoInfo={props.repoInfo}/>
-                    </div>
+                    </InfoAreaStyle>
                 :
-                    <div className="info-area-error">
+                    <InfoAreaErrorStyle>
                         <h3>{props.repoNotFound}</h3>
-                    </div>
+                    </InfoAreaErrorStyle>
             }
         </>
     )
@@ -26,5 +28,19 @@ InfoArea.propTypes = {
     repoNotFound: PropTypes.string,
     userNotFound: PropTypes.string
 }
+
+const InfoAreaStyle = styled.div`
+	display: flex;
+	background: #0a2247;
+	padding: 1em;
+	border-radius: 15px;
+`;
+
+const InfoAreaErrorStyle = styled.div`
+	text-align: center;
+	background: #0a2247;
+	padding: 1em;
+	border-radius: 15px;
+`;
 
 export default InfoArea

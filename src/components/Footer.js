@@ -1,22 +1,26 @@
-import { Link } from 'react-router-dom'
-import { useLocation } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
+import styled from 'styled-components';
 
-const Footer = () => {
+const Footer = (props) => {
     const location = useLocation();
 
     return (
         <footer>
             <p>Copyright &copy; 2021</p>
 
-            {location.pathname === '/about' 
+            {location.pathname === props.aboutPath
             ? 
-            <Link to="/" className="link">Back</Link>
+            <LinkStyle to={props.rootPath} className="link">Back</LinkStyle>
             :
-            <Link to="/about" className="link">About</Link>
+            <LinkStyle to={props.aboutPath} className="link">About</LinkStyle>
             }
             
         </footer>
     )
 }
+
+const LinkStyle = styled(Link)`
+    color: #00ffcd;
+`;
 
 export default Footer
