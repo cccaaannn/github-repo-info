@@ -8,6 +8,9 @@ import Footer from './components/Footer'
 import SearchRepo from './components/SearchRepo'
 import InfoArea from './components/InfoArea'
 
+// styled components
+import ContainerStyle from './components/Styled/AppStyles'
+import GlobalStyles from './components/Styled/GlobalSyles'
 
 function App() {
 
@@ -40,13 +43,18 @@ function App() {
 		userNotFound: "User not found"
 	}
 
+    const paths = {
+        "rootPath" : process.env.NODE_ENV === 'production' ? "/github-repo-info" : "/",
+        "aboutPath" : process.env.NODE_ENV === 'production' ? "/github-repo-info/about" : "/about"
+    }
 
 	return (
         <Router>
-            <div className="container">
+            <GlobalStyles />
+            <ContainerStyle>
                 <Header title={staticTexts.title}/>
 
-                <Route path='/' exact render={(props) => 
+                <Route path={paths.rootPath} exact render={(props) => 
                 (
                     <>
 						<SearchRepo onSearch={onSearch}/>
@@ -54,17 +62,18 @@ function App() {
                     </>
                 )} />
 
-                <Route path='/about' exact render={(props) => 
+                <Route path={paths.aboutPath} exact render={(props) => 
                 (
                     <>
 						<About aboutText={staticTexts.aboutText}/>
                     </>
                 )} />
 
-                <Footer />
-            </div>
+                <Footer rootPath={paths.rootPath} aboutPath={paths.aboutPath}/>
+            </ContainerStyle>
         </Router>
 	);
 }
+
 
 export default App;
