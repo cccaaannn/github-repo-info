@@ -1,16 +1,16 @@
-import PropTypes from 'prop-types'
 import styled from 'styled-components';
 
-const About = (props) => {
-    return (
-        <AboutStyle>
-            <p>{props.aboutText}</p>            
-        </AboutStyle>
-    )
+
+type Props = {
+    aboutText: string
 }
 
-About.propTypes = {
-    aboutText: PropTypes.string
+const About = (props: Props) => {
+    return (
+        <AboutStyle>
+            <p>{props.aboutText}</p>
+        </AboutStyle>
+    )
 }
 
 const AboutStyle = styled.div`

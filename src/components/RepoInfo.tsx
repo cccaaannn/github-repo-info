@@ -1,9 +1,16 @@
-import InfoItem from './InfoItem'
+import InfoItem from './InfoItem';
 import styled from 'styled-components';
 
-const RepoInfo = (props) => {
+// types
+import { IRepoInfo } from '../types/types';
 
-    const prettifySize = (size) => {
+type Props = {
+    repoInfo: IRepoInfo
+}
+
+const RepoInfo = (props: Props) => {
+
+    const prettifySize = (size: number): string => {
         if(size < 1000){
             return size.toFixed(2) + " KB";
         }
@@ -15,7 +22,7 @@ const RepoInfo = (props) => {
         }
     }
 
-    const prettifyDate = (dateISO) => {
+    const prettifyDate = (dateISO: string): string => {
         let d = new Date(Date.parse(dateISO));
         // return d.toLocaleString("tr");
         return d.toLocaleString();
@@ -35,7 +42,7 @@ const RepoInfo = (props) => {
                     <tr>
                         <th><InfoItem infoDescription={"Language"} info={props.repoInfo.language ? props.repoInfo.language : "-"}/></th>
                         <th><InfoItem infoDescription={"License"} info={props.repoInfo.license ? props.repoInfo.license.key : "-"}/></th>                            
-                        <th><InfoItem infoDescription={"Size"} info={props.repoInfo.size ? prettifySize(props.repoInfo.size) : "-"}/></th>
+                        <th><InfoItem infoDescription={"Size"} info={props.repoInfo.size ? prettifySize(parseInt(props.repoInfo.size)) : "-"}/></th>
                     </tr>
                 </TableStyle>
 

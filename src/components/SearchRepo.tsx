@@ -1,13 +1,17 @@
-import { useState } from 'react'
-import PropTypes from 'prop-types'
+import { useState } from 'react';
 
-import { FormStyle, FormControlStyle, ButtonStyle } from './Styled/SearchRepoStyles'
+import { FormStyle, FormControlStyle, ButtonStyle } from './Styled/SearchRepoStyles';
 
-const SearchRepo = (props) => {
+
+type Props = {
+    onSearch: (repoOwner: string, repoName: string) => void;
+}
+
+const SearchRepo = (props: Props) => {
     const [repoOwner, setRepoOwner] = useState('');
     const [repoName, setRepoName] = useState('');
 
-    const onSubmit = (e) => {
+    const onSubmit = (e: React.FormEvent<HTMLFormElement>) => {
         e.preventDefault();
 
         if(!repoOwner) {
@@ -20,7 +24,7 @@ const SearchRepo = (props) => {
             return
         }
 
-        props.onSearch({ repoOwner, repoName })
+        props.onSearch(repoOwner, repoName)
     }
 
     return (
@@ -38,8 +42,5 @@ const SearchRepo = (props) => {
     )
 }
 
-SearchRepo.propTypes = {
-    onSearch: PropTypes.func
-}
 
-export default SearchRepo
+export default SearchRepo;

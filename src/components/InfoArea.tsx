@@ -1,10 +1,22 @@
-import PropTypes from 'prop-types'
-import RepoInfo from './RepoInfo'
-import OwnerInfo from './OwnerInfo'
+// inner components
+import RepoInfo from './RepoInfo';
+import OwnerInfo from './OwnerInfo';
 
+// styled components
 import styled from 'styled-components';
 
-const InfoArea = (props) => {
+// types
+import { IOwnerInfo, IRepoInfo } from '../types/types';
+
+type Props = {
+    userNotFound: string,
+    repoNotFound: string,
+
+    ownerInfo: IOwnerInfo,
+    repoInfo: IRepoInfo
+}
+
+const InfoArea = (props: Props) => {
 
     return (
         <>
@@ -24,11 +36,6 @@ const InfoArea = (props) => {
     )
 }
 
-InfoArea.propTypes = {
-    repoNotFound: PropTypes.string,
-    userNotFound: PropTypes.string
-}
-
 const InfoAreaStyle = styled.div`
 	display: flex;
 	background: #0a2247;
@@ -43,4 +50,4 @@ const InfoAreaErrorStyle = styled.div`
 	border-radius: 15px;
 `;
 
-export default InfoArea
+export default InfoArea;

@@ -1,7 +1,13 @@
-import { useLocation, Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom';
 import styled from 'styled-components';
 
-const Footer = (props) => {
+
+type Props = {
+    rootPath: string,
+    aboutPath: string
+}
+
+const Footer = (props: Props) => {
     const location = useLocation();
 
     return (

@@ -1,6 +1,12 @@
 import styled from 'styled-components';
 
-const InfoItem = (props) => {
+
+type Props = {
+    info: string,
+    infoDescription: string
+}
+
+const InfoItem = (props: Props) => {
     return (
         <InfoItemStyle>
             <h3>{props.info}</h3>
